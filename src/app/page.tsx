@@ -28,7 +28,7 @@ const IndexPage: React.FC = () => {
   return (
     <div className="flex h-screen">
       <Sidebar setActiveComponent={setActiveComponent} />
-      <div className="flex-1 p-8">{renderComponent()}</div>
+      <div className="flex-1 p-8 overflow-scroll">{renderComponent()}</div>
     </div>
   );
 };
