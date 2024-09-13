@@ -46,15 +46,15 @@ const Home = () => {
   };
 
   const FirstTimeUserView = () => (
-    <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-      <Card className="p-8 max-w-md w-full bg-white text-gray-800">
-        <h1 className="text-2xl font-bold mb-4">
+    <div className="flex h-screen flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+      <Card className="w-full max-w-md bg-white p-8 text-gray-800">
+        <h1 className="mb-4 text-2xl font-bold">
           {onboardingSteps[currentStep].title}
         </h1>
         <p className="mb-6">{onboardingSteps[currentStep].description}</p>
         {currentStep === 1 && (
           <Select>
-            <SelectTrigger className="w-full mb-4">
+            <SelectTrigger className="mb-4 w-full">
               <SelectValue placeholder="Select room type" />
             </SelectTrigger>
             <SelectContent>
@@ -66,7 +66,7 @@ const Home = () => {
         )}
         {currentStep === 2 && (
           <Select>
-            <SelectTrigger className="w-full mb-4">
+            <SelectTrigger className="mb-4 w-full">
               <SelectValue placeholder="Select room style" />
             </SelectTrigger>
             <SelectContent>
@@ -93,7 +93,7 @@ const Home = () => {
   const ReturningUserView = () => (
     <div className="flex h-screen">
       <div className="w-1/3 bg-gray-100 p-6">
-        <h2 className="text-xl font-bold mb-4">Design Input</h2>
+        <h2 className="mb-4 text-xl font-bold">Design Input</h2>
         <div className="flex flex-col space-y-4">
           <Select>
             <SelectTrigger>
@@ -124,7 +124,7 @@ const Home = () => {
         </div>
       </div>
       <div className="w-2/3 p-6">
-        <div className="flex justify-between items-center mb-4">
+        <div className="mb-4 flex items-center justify-between">
           <h2 className="text-xl font-bold">Generated Designs</h2>
           <Button variant="outline">Previous Generations</Button>
         </div>
@@ -133,7 +133,7 @@ const Home = () => {
           {[1, 2, 3, 4].map((i) => (
             <div
               key={i}
-              className="bg-gray-200 h-48 rounded-lg flex items-center justify-center"
+              className="flex h-48 items-center justify-center rounded-lg bg-gray-200"
             >
               Image {i}
             </div>

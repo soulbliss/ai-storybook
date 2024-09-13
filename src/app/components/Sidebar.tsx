@@ -8,22 +8,22 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ setActiveComponent }) => {
   return (
     <div className="w-32 bg-gray-100 p-4">
-      <h2 className="text-xl font-bold mb-4">Menu</h2>
+      <h2 className="mb-4 text-xl font-bold">Menu</h2>
       <div className="flex flex-col space-y-2 text-xs">
         <button
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="rounded bg-blue-500 px-4 py-2 text-white"
           onClick={() => setActiveComponent("home")}
         >
           Home
         </button>
         <button
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="rounded bg-blue-500 px-4 py-2 text-white"
           onClick={() => setActiveComponent("returning")}
         >
           Returning user
         </button>
         <button
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="rounded bg-blue-500 px-4 py-2 text-white"
           onClick={() => setActiveComponent("generate")}
         >
           Generate page

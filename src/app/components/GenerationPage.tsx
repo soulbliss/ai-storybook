@@ -59,9 +59,9 @@ const GenerationPage: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex mb-6">
+      <div className="mb-6 flex">
         <button
-          className={`px-4 py-2 mr-2 ${
+          className={`mr-2 px-4 py-2 ${
             activeTab === "generate" ? "bg-blue-500 text-white" : "bg-gray-200"
           }`}
           onClick={() => setActiveTab("generate")}
@@ -69,7 +69,7 @@ const GenerationPage: React.FC = () => {
           Generate
         </button>
         <button
-          className={`px-4 py-2 mr-2 ${
+          className={`mr-2 px-4 py-2 ${
             activeTab === "saved" ? "bg-blue-500 text-white" : "bg-gray-200"
           }`}
           onClick={() => setActiveTab("saved")}
@@ -87,11 +87,11 @@ const GenerationPage: React.FC = () => {
       </div>
 
       {activeTab === "generate" && (
-        <div className="flex flex-wrap -mx-4">
-          <div className="w-full md:w-1/3 px-4 mb-6">
-            <h2 className="text-2xl font-bold mb-4">Design Input</h2>
+        <div className="-mx-4 flex flex-wrap">
+          <div className="mb-6 w-full px-4 md:w-1/3">
+            <h2 className="mb-4 text-2xl font-bold">Design Input</h2>
             <select
-              className="w-full p-2 mb-4 border rounded"
+              className="mb-4 w-full rounded border p-2"
               value={roomType}
               onChange={(e) => setRoomType(e.target.value)}
             >
@@ -103,7 +103,7 @@ const GenerationPage: React.FC = () => {
               ))}
             </select>
             <select
-              className="w-full p-2 mb-4 border rounded"
+              className="mb-4 w-full rounded border p-2"
               value={roomStyle}
               onChange={(e) => setRoomStyle(e.target.value)}
             >
@@ -116,27 +116,27 @@ const GenerationPage: React.FC = () => {
             </select>
             <input
               type="number"
-              className="w-full p-2 mb-4 border rounded"
+              className="mb-4 w-full rounded border p-2"
               value={renderCount}
               onChange={(e) => setRenderCount(parseInt(e.target.value))}
               min="1"
               max="10"
             />
             <button
-              className="w-full bg-blue-500 text-white py-2 rounded mb-4"
+              className="mb-4 w-full rounded bg-blue-500 py-2 text-white"
               onClick={handleGenerate}
             >
               Generate
             </button>
             <button
-              className="w-full bg-green-500 text-white py-2 rounded"
+              className="w-full rounded bg-green-500 py-2 text-white"
               onClick={handleSurpriseMe}
             >
               Surprise Me
             </button>
           </div>
-          <div className="w-full md:w-2/3 px-4">
-            <h2 className="text-2xl font-bold mb-4">Generated Designs</h2>
+          <div className="w-full px-4 md:w-2/3">
+            <h2 className="mb-4 text-2xl font-bold">Generated Designs</h2>
             <div className="grid grid-cols-2 gap-4">
               {generatedImages.map((image) => (
                 <div key={image.id} className="relative">
@@ -147,20 +147,20 @@ const GenerationPage: React.FC = () => {
                     height={200}
                     className="rounded"
                   />
-                  <div className="absolute top-2 right-2 space-x-2">
+                  <div className="absolute right-2 top-2 space-x-2">
                     <button
                       onClick={() => toggleFavorite(image.id)}
-                      className="bg-white p-1 rounded-full"
+                      className="rounded-full bg-white p-1"
                     >
                       {image.isFavorite ? "❤️" : "🤍"}
                     </button>
                     <button
                       onClick={() => saveDesign(image)}
-                      className="bg-white p-1 rounded-full"
+                      className="rounded-full bg-white p-1"
                     >
                       💾
                     </button>
-                    <button className="bg-white p-1 rounded-full">🖊️</button>
+                    <button className="rounded-full bg-white p-1">🖊️</button>
                   </div>
                 </div>
               ))}
@@ -171,16 +171,16 @@ const GenerationPage: React.FC = () => {
 
       {activeTab === "saved" && (
         <div>
-          <h2 className="text-2xl font-bold mb-4">Saved Designs</h2>
+          <h2 className="mb-4 text-2xl font-bold">Saved Designs</h2>
           <div className="grid grid-cols-3 gap-4">
             {savedDesigns.map((design, index) => (
-              <div key={index} className="border rounded p-4">
+              <div key={index} className="rounded border p-4">
                 <img
                   src={design.url}
                   alt="Saved room design"
                   width={300}
                   height={200}
-                  className="rounded mb-2"
+                  className="mb-2 rounded"
                 />
                 <p>
                   {design.roomType} - {design.roomStyle}
@@ -193,13 +193,13 @@ const GenerationPage: React.FC = () => {
 
       {activeTab === "history" && (
         <div>
-          <h2 className="text-2xl font-bold mb-4">Generation History</h2>
+          <h2 className="mb-4 text-2xl font-bold">Generation History</h2>
           {previousGenerations.map((gen, index) => (
             <div key={index} className="mb-6 border-b pb-6">
-              <h3 className="text-xl font-semibold mb-2">
+              <h3 className="mb-2 text-xl font-semibold">
                 {gen.roomType} - {gen.roomStyle}
               </h3>
-              <div className="grid grid-cols-4 gap-2 mb-4">
+              <div className="mb-4 grid grid-cols-4 gap-2">
                 {gen.images.map((img: any) => (
                   <div key={img.id} className="relative">
                     <img
@@ -209,16 +209,16 @@ const GenerationPage: React.FC = () => {
                       height={100}
                       className="rounded"
                     />
-                    <div className="absolute top-1 right-1 space-x-1">
+                    <div className="absolute right-1 top-1 space-x-1">
                       <button
                         onClick={() => toggleFavorite(img.id)}
-                        className="bg-white p-1 rounded-full text-xs"
+                        className="rounded-full bg-white p-1 text-xs"
                       >
                         {img.isFavorite ? "❤️" : "🤍"}
                       </button>
                       <button
                         onClick={() => saveDesign(img)}
-                        className="bg-white p-1 rounded-full text-xs"
+                        className="rounded-full bg-white p-1 text-xs"
                       >
                         💾
                       </button>
@@ -233,7 +233,7 @@ const GenerationPage: React.FC = () => {
                     setRoomStyle(gen.roomStyle);
                     setActiveTab("generate");
                   }}
-                  className="bg-blue-500 text-white px-4 py-2 rounded"
+                  className="rounded bg-blue-500 px-4 py-2 text-white"
                 >
                   Recreate
                 </button>
@@ -243,7 +243,7 @@ const GenerationPage: React.FC = () => {
                     setRoomStyle(gen.roomStyle);
                     setActiveTab("generate");
                   }}
-                  className="bg-green-500 text-white px-4 py-2 rounded"
+                  className="rounded bg-green-500 px-4 py-2 text-white"
                 >
                   Modify
                 </button>
@@ -251,7 +251,7 @@ const GenerationPage: React.FC = () => {
             </div>
           ))}
           {previousGenerations.length > 5 && (
-            <button className="bg-gray-200 px-4 py-2 rounded w-full">
+            <button className="w-full rounded bg-gray-200 px-4 py-2">
               Load More
             </button>
           )}

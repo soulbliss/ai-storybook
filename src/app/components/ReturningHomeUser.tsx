@@ -29,35 +29,35 @@ const trendingDesigns = [
 const ReturningUserHome: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Welcome back!</h1>
+      <h1 className="mb-8 text-3xl font-bold">Welcome back!</h1>
 
       {/* Continue where you left off */}
       {unfinishedDesign && (
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">
+          <h2 className="mb-4 text-2xl font-semibold">
             Continue where you left off
           </h2>
-          <div className="bg-white rounded-lg shadow-md p-4 flex items-center">
+          <div className="flex items-center rounded-lg bg-white p-4 shadow-md">
             <Image
               src={unfinishedDesign.imageUrl}
               alt={unfinishedDesign.title}
               width={100}
               height={100}
-              className="rounded-md mr-4"
+              className="mr-4 rounded-md"
             />
             <div>
               <h3 className="font-semibold">{unfinishedDesign.title}</h3>
-              <div className="w-48 bg-gray-200 rounded-full h-2.5 mt-2">
+              <div className="mt-2 h-2.5 w-48 rounded-full bg-gray-200">
                 <div
-                  className="bg-blue-600 h-2.5 rounded-full"
+                  className="h-2.5 rounded-full bg-blue-600"
                   style={{ width: `${unfinishedDesign.progress}%` }}
                 ></div>
               </div>
-              <p className="text-sm text-gray-600 mt-1">
+              <p className="mt-1 text-sm text-gray-600">
                 {unfinishedDesign.progress}% complete
               </p>
             </div>
-            <button className="ml-auto bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+            <button className="ml-auto rounded bg-blue-500 px-4 py-2 text-white transition hover:bg-blue-600">
               Continue
             </button>
           </div>
@@ -66,22 +66,22 @@ const ReturningUserHome: React.FC = () => {
 
       {/* Recent Generations and Saved Favorites */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Your Designs</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <h2 className="mb-4 text-2xl font-semibold">Your Designs</h2>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>
-            <h3 className="text-xl font-semibold mb-3">Recent Generations</h3>
+            <h3 className="mb-3 text-xl font-semibold">Recent Generations</h3>
             <div className="space-y-4">
               {recentGenerations.map((design) => (
                 <div
                   key={design.id}
-                  className="bg-white rounded-lg shadow-md p-4 flex items-center"
+                  className="flex items-center rounded-lg bg-white p-4 shadow-md"
                 >
                   <Image
                     src={design.imageUrl}
                     alt={design.title}
                     width={80}
                     height={80}
-                    className="rounded-md mr-4"
+                    className="mr-4 rounded-md"
                   />
                   <h4 className="font-semibold">{design.title}</h4>
                   <button className="ml-auto text-blue-500 hover:text-blue-600">
@@ -92,19 +92,19 @@ const ReturningUserHome: React.FC = () => {
             </div>
           </div>
           <div>
-            <h3 className="text-xl font-semibold mb-3">Saved Favorites</h3>
+            <h3 className="mb-3 text-xl font-semibold">Saved Favorites</h3>
             <div className="space-y-4">
               {savedFavorites.map((design) => (
                 <div
                   key={design.id}
-                  className="bg-white rounded-lg shadow-md p-4 flex items-center"
+                  className="flex items-center rounded-lg bg-white p-4 shadow-md"
                 >
                   <Image
                     src={design.imageUrl}
                     alt={design.title}
                     width={80}
                     height={80}
-                    className="rounded-md mr-4"
+                    className="mr-4 rounded-md"
                   />
                   <h4 className="font-semibold">{design.title}</h4>
                   <button className="ml-auto text-blue-500 hover:text-blue-600">
@@ -119,24 +119,24 @@ const ReturningUserHome: React.FC = () => {
 
       {/* Explore Section */}
       <section>
-        <h2 className="text-2xl font-semibold mb-4">
+        <h2 className="mb-4 text-2xl font-semibold">
           Explore Trending Designs
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {trendingDesigns.map((design) => (
             <div
               key={design.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
+              className="overflow-hidden rounded-lg bg-white shadow-md"
             >
               <Image
                 src={design.imageUrl}
                 alt={design.title}
                 width={400}
                 height={300}
-                className="w-full h-48 object-cover"
+                className="h-48 w-full object-cover"
               />
               <div className="p-4">
-                <h3 className="font-semibold mb-2">{design.title}</h3>
+                <h3 className="mb-2 font-semibold">{design.title}</h3>
                 <Link
                   href={`/design/${design.id}`}
                   className="text-blue-500 hover:text-blue-600"
@@ -153,7 +153,7 @@ const ReturningUserHome: React.FC = () => {
       <div className="mt-12 text-center">
         <Link
           href="/create-design"
-          className="bg-green-500 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-green-600 transition"
+          className="rounded-lg bg-green-500 px-6 py-3 text-lg font-semibold text-white transition hover:bg-green-600"
         >
           Create New Design
         </Link>
